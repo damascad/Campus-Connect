@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="bg-photo">
+    <div class="hero-content">
+        <h1 class="hero-title">We <span> <3 </span> people who give Feedbacks</h1>
+        <p class="hero-paragraph">
+            Those who provide feedback are like architects of improvement, shaping a better tomorrow with their words today
+        </p>
+        <div class="hero-options ">
+            {% if not user.is_authenticated %}
+                <a href="{% url "register" %}" class="btn btn-developers">SignUp</a>
+                <a href="{% url "login" %}" class="btn btn-businesses">SignIn</a>
+            {% else %}
+                <a href="{% url "profile" %}" class="btn btn-secondary mx-2">Edit Your Profile</a>
+                <a href="{% url "stackbase:question-list" %}" class="btn btn-primary">Latest Discussions</a>
+            {% endif %}
+            {% comment %} <a href="{% url 'stackbase:question-lists' %}" class="btn btn-developers" style="margin-left: 5px;">Latest Questions</a> {% endcomment %}
+
+        </div>
+    </div>
+</section>
+
+
+<section class="for-developers">
+   <div class="container">
+    
+       <div class="section-head">
+           <h2 class="section-title">To Feedbackers , By Campus Connect Team
+           </h2>
+           <div class="section-line"></div>
+           <p class="section-description">People who participate in feedbacks often have a strong desire to improve themselves, their environment, or the systems they are a part of. They see feedback as a valuable tool for growth and development.
+           </p>
+       </div>
+       <div class="options">
+           <div class="option">
+               <div class="option-icon">
+                   <img src="https://cdn.sstatic.net/Img/home/public-qa.svg?v=d82acaa7df9f" alt="Public Q & A">
+               </div>
+               <div class="option-title">
+                   Polls Section
+               </div>
+               <div class="option-description">
+                This platform combines the engagement of social media with the informative nature of polls, creating an interactive space for sharing opinions and insights.
+               </div>
+               <div class="option-button">
+                   <a href="{% url "stackbase:poll_list" %}" class="option-link btn btn-dark-blue">
+                       Polls
+                   </a>
+               </div>
+           </div>
+           <div class="option">
+               <div class="option-icon">
+                   <img src="https://cdn.sstatic.net/Img/home/private-qa.svg?v=2c1de180b6d7" alt="Private Q & A">
+               </div>
+               <div class="option-title">
+                   Latest Discussions
+               </div>
+               <div class="option-description">
+                An online forum or chatroom where users can engage in discussions, exchange ideas, and collaborate, providing a digital space for meaningful interactions and knowledge sharing.
+               </div>
+               <div class="option-button">
+                   <a href="{% url "stackbase:question-list" %}" class="option-link btn btn-orange">
+                       Discussions
+                   </a>
+               </div>
+           </div>
+           <div class="option">
+               <div class="option-icon">
+                   <img src="https://cdn.sstatic.net/Img/home/jobs.svg?v=931d6c0863ee" alt="Browse jobs
+">
+               </div>
+               <div class="option-title">
+                   Goodies section
+               </div>
+               <div class="option-description">
+                A system that incentivizes desired behaviors or actions by offering digital rewards such as points, badges, or virtual goods, encouraging engagement and participation.
+               </div>
+               <div class="option-button">
+                   <a href="{% url "stackbase:goodies" %}" class="option-link btn btn-dark-blue">
+                       Goodies
+                   </a>
+               </div>
+           </div>
+       </div>
+   </div>
+</section>
+
+
+
+
+
+
+{% endblock content %}
